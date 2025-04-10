@@ -47,7 +47,7 @@ obywatel-bielik-docs/
 
 ## Dokumentacja API
 
-Dokumentacja API jest generowana automatycznie na podstawie specyfikacji OpenAPI. Aktualna wersja jest dostępna pod adresem [https://api.obywatel-bielik.example.com/docs](https://api.obywatel-bielik.example.com/docs).
+Dokumentacja API jest generowana automatycznie na podstawie specyfikacji OpenAPI. Aktualna wersja jest dostępna pod adresem [https://[api.obywatel-bielik.example.com/docs](https://xxzu-5a3s-xcvy.f2.xano.io/api:jMvWid_x)](https://api.obywatel-bielik.example.com/docs).
 
 ## Przewodniki dla użytkowników
 
