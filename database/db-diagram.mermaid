@@ -1,0 +1,114 @@
+erDiagram
+    USERS {
+        int id PK
+        string login
+        string name_or_pseudonym
+        string auth_provider
+        string email
+        datetime registration_date
+        datetime last_login
+        datetime privacy_policy_accepted_date
+        string user_type
+        int team_id FK
+    }
+    
+    TEAMS {
+        int id PK
+        string name
+        string description
+        datetime created_at
+    }
+    
+    WEEKLY_GOALS {
+        int id PK
+        string name
+        string icon
+        int target_photos
+        string motivation_message_start
+        string motivation_message_inprogress
+        string motivation_message_nearcomplete
+    }
+    
+    USER_WEEKLY_GOALS {
+        int id PK
+        int user_id FK
+        int goal_id FK
+        datetime start_date
+        int photos_described
+        boolean completed
+    }
+    
+    IMAGES {
+        int id PK
+        string file_name
+        string file_path
+        string file_format
+        int width
+        int height
+        int file_size
+        string source
+        string source_uri
+        string source_type
+        string source_domain
+        string source_scope_of_data
+        datetime uploaded_at
+        int uploaded_by FK
+        boolean is_user_generated
+        boolean is_moderated
+        boolean moderation_status
+        string moderation_comments
+    }
+    
+    ANNOTATIONS {
+        int id PK
+        int image_id FK
+        int user_id FK
+        text narrative_description
+        text factual_description
+        text auto_generated_description
+        datetime created_at
+        datetime updated_at
+        boolean is_corrected
+        boolean verification_status
+        int verified_by FK
+    }
+    
+    ACHIEVEMENTS {
+        int id PK
+        string name
+        string description
+        string icon
+        string achievement_type
+        int threshold_value
+    }
+    
+    USER_ACHIEVEMENTS {
+        int id PK
+        int user_id FK
+        int achievement_id FK
+        datetime achieved_at
+        int current_value
+    }
+    
+    USER_STATS {
+        int id PK
+        int user_id FK
+        int consecutive_days
+        int total_photos_described
+        int total_photos_uploaded
+        int max_weekly_photos
+        datetime last_activity_date
+    }
+
+    USERS ||--o{ ANNOTATIONS : creates
+    USERS ||--o{ IMAGES : uploads
+    USERS ||--o{ USER_WEEKLY_GOALS : selects
+    USERS ||--o{ USER_ACHIEVEMENTS : earns
+    USERS ||--o{ USER_STATS : has
+    USERS }|--|| TEAMS : belongs_to
+    
+    WEEKLY_GOALS ||--o{ USER_WEEKLY_GOALS : assigned_to
+    
+    IMAGES ||--o{ ANNOTATIONS : has
+    
+    ACHIEVEMENTS ||--o{ USER_ACHIEVEMENTS : awarded_to

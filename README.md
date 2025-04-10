@@ -19,7 +19,7 @@ obywatel-bielik-docs/
 │   └── endpoints/                # Szczegółowe opisy endpointów
 ├── database/                     # Dokumentacja bazy danych
 │   ├── schema.md                 # Opis schematu
-│   ├── erd.png                   # Diagram ERD
+│   ├── db-diagram.mermaid        # Diagram ERD
 │   └── migrations.md             # Zasady migracji
 ├── user-guides/                  # Przewodniki dla użytkowników
 │   ├── getting-started.md        # Pierwsze kroki
